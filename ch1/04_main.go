@@ -11,11 +11,12 @@ func main() {
 	dict := make(map[string]int)
 
 	for i, v := range strings.Split(s, " ") {
-		switch i + 1 {
+		j := i + 1
+		switch j {
 		case 1, 5, 6, 7, 8, 9, 15, 16, 19:
-			dict[string([]rune(v)[0])] = i
+			dict[string([]rune(v)[0])] = j
 		default:
-			dict[string([]rune(v)[0])+string([]rune(v)[1])] = i
+			dict[string([]rune(v)[0])+string([]rune(v)[1])] = j
 		}
 	}
 	fmt.Println(dict)
