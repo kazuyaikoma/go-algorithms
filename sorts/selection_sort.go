@@ -3,22 +3,21 @@ package main
 import "fmt"
 
 func min(a []int) (idx, n int) {
-	idx, n = 0, a[0]
-
+	minI, minV := 0, a[0]
 	for i, v := range a {
-		if v < n {
-			idx, n = i, v
+		if v < minV {
+			minI, minV = i, v
 		}
 	}
 
-	return
+	return minI, minV
 }
 
 func selectionSort(a []int) []int {
-	for i := 0; i < len(a)-1; i++ {
-		j, _ := min(a[i:])
-		if i != i+j {
-			a[i], a[i+j] = a[i+j], a[i]
+	for i := 0; i < len(a); i++ {
+		minI, minV := min(a[i:len(a)])
+		if minV < a[i] {
+			a[i], a[i+minI] = minV, a[i]
 		}
 	}
 
