@@ -3,18 +3,14 @@ package main
 import "fmt"
 
 func insertionSort(a []int) []int {
-	sorted := true
-	for {
-		for i := len(a) - 1; 1 <= i; i++ {
-			if a[i] < a[i-1] {
-				a[i], a[i-1] = a[i-1], a[i]
-				sorted = false
+	for i := 1; i < len(a); i++ {
+		for j := i - 1; 0 <= j; j-- {
+			if a[j+1] < a[j] {
+				a[j], a[j+1] = a[j+1], a[j]
 			}
 		}
-		if sorted {
-			return a
-		}
 	}
+	return a
 }
 
 func main() {
